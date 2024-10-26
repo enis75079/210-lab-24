@@ -69,7 +69,7 @@ int main_menu() {
         cout << "*** GOAT MANAGER 3001 ***" << endl;
         cout << "[1] Add a goat" << endl;
         cout << "[2] Delete a goat" << endl;
-        cout << "[3] List goats" << endl;
+        cout << "[3] set of goats" << endl;
         cout << "[4] Quit" << endl;
         cout << "Choice --> ";
         cin >> userNum;
@@ -83,7 +83,7 @@ int main_menu() {
     }
 }
 
-// add goat function. generates a random name, color, and age. creates a new goat object and adds it to the parameter list
+// add goat function. generates a random name, color, and age. creates a new goat object and adds it to the parameter set
 void add_goat(set<Goat> &goats, string goatNames[], string goatColors[]) {
     int nameNum = rand() % SZ_NAMES;
     string goatName = goatNames[nameNum];  
@@ -102,21 +102,21 @@ void add_goat(set<Goat> &goats, string goatNames[], string goatColors[]) {
 void delete_goat(set<Goat> &goats) {
     int deleteGoat = select_goat(goats) - 1;
 
-    // goes through the list to find the user's desired index
+    // goes through the set to find the user's desired index
     auto it = goats.begin();
     advance(it, deleteGoat);
     cout << "deleted " << it->get_name() << "." << endl;
     cout << endl;
     goats.erase(it);
-    // displays the list after the user deletes an item from the list 
+    // displays the set after the user deletes an item from the set 
     display_trip(goats);
 }
 
-// select goat function. used in the delete goat function. user inputs a number that they want to delete from the list that is displayed.
+// select goat function. used in the delete goat function. user inputs a number that they want to delete from the set that is displayed.
 int select_goat(set<Goat> &goats) {
     int i = 1;    
     int userNum = 0;
-    // outputs current list
+    // outputs current set
     for (const Goat &x : goats) {
         cout << "[" << i++ << "] " << x << endl;
     }
@@ -127,14 +127,14 @@ int select_goat(set<Goat> &goats) {
     return userNum;
 }
 
-// display trip function. outputs the current list in a formatted fashion
+// display trip function. outputs the current set in a formatted fashion
 void display_trip(set<Goat> &goats) {
     if (goats.empty()) {
         cout << "no goats" << endl;
         return;
     }
     int i = 1;
-    cout << "current list: " << endl;
+    cout << "current set: " << endl;
     cout << endl;
     for (const Goat &goat : goats) {
         cout << "[" << i++ << "] " << goat.get_name() << " (" << goat.get_age() << ", " << goat.get_color() << ") " << endl;
