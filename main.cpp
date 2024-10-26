@@ -1,6 +1,6 @@
 /*
 
-lab23: Goat Manager 3001
+lab24: GM3K2
 COMSC-210
 Naveen Islam
 IDE: vscode
@@ -9,16 +9,16 @@ IDE: vscode
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <list>
+#include <set>
 #include "Goat.h"
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> &trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> &trip);
+int select_goat(set<Goat> &trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string [], string []);
+void display_trip(set<Goat> &trip);
 int main_menu();
 
 // main function
@@ -26,7 +26,7 @@ int main() {
     srand(time(0));
     bool again = true;
     // creates a class Goat list
-    list<Goat> goats;
+    set<Goat> goats;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
