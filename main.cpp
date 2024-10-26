@@ -93,7 +93,7 @@ void add_goat(set<Goat> &goats, string goatNames[], string goatColors[]) {
 
     int age = rand() % MAX_AGE + 1;
     Goat newGoat(goatName, age, goatColor);
-    goats.push_back(newGoat);
+    goats.insert(newGoat);
     cout << endl;
 
 }
