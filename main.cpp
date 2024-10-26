@@ -25,7 +25,7 @@ int main_menu();
 int main() {
     srand(time(0));
     bool again = true;
-    // creates a class Goat list
+    // creates a class Goat set
     set<Goat> goats;
 
     // read & populate arrays for names and colors
@@ -84,7 +84,7 @@ int main_menu() {
 }
 
 // add goat function. generates a random name, color, and age. creates a new goat object and adds it to the parameter list
-void add_goat(list<Goat> &goats, string goatNames[], string goatColors[]) {
+void add_goat(set<Goat> &goats, string goatNames[], string goatColors[]) {
     int nameNum = rand() % SZ_NAMES;
     string goatName = goatNames[nameNum];  
 
@@ -99,7 +99,7 @@ void add_goat(list<Goat> &goats, string goatNames[], string goatColors[]) {
 }
 
 // delete goat function. reads user input from select_goat() function and deletes the object in that index
-void delete_goat(list<Goat> &goats) {
+void delete_goat(set<Goat> &goats) {
     int deleteGoat = select_goat(goats) - 1;
 
     // goes through the list to find the user's desired index
@@ -113,7 +113,7 @@ void delete_goat(list<Goat> &goats) {
 }
 
 // select goat function. used in the delete goat function. user inputs a number that they want to delete from the list that is displayed.
-int select_goat(list<Goat> &goats) {
+int select_goat(set<Goat> &goats) {
     int i = 1;    
     int userNum = 0;
     // outputs current list
@@ -128,7 +128,7 @@ int select_goat(list<Goat> &goats) {
 }
 
 // display trip function. outputs the current list in a formatted fashion
-void display_trip(list<Goat> &goats) {
+void display_trip(set<Goat> &goats) {
     if (goats.empty()) {
         cout << "no goats" << endl;
         return;
