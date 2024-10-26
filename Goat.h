@@ -43,15 +43,17 @@ public:
     void set_color(string c)        { color = c; }
     string get_color() const        { return color; }
 
+    // overloaded < operator for the std::set
     bool operator<(const Goat& x) const {
-        
+        if (name != x.name) {
+            return name < x.name;
+        }
+        if (age != x.age) {
+            return age < x.age;
+        }
+        return color < x.color;
     }
     
-    // write overloaded < operator for the std::list
-    friend ostream& operator<<(ostream& os, const Goat& goat) {
-        os << goat.get_name() << " (Color: " << goat.get_color() << ", Age: " << goat.get_age() << ")";
-        return os;
-    }
 };
 
 #endif
